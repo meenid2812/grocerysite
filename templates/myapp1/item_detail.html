@@ -1,0 +1,24 @@
+{% extends 'myapp1/base.html' %}
+{% block myhdg %}
+    {% if msg %}
+            <p>{{ msg }}</p>
+    {% endif %}
+    <span>Item Detail</span>
+{% endblock %}
+{% block body_block %}
+
+        {% if itemdetail.available %}
+            <h1>{{ itemdetail.name }}</h1>
+            <p>Item quantity interested by people: {{ itemdetail.interested }}</p>
+            <p>Price: {{ itemdetail.price }}</p>
+          <form method="POST" action="{% url 'myapp1:itemdetail' itemdetail.pk %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+
+        {% else %}
+          <p>This item is not available.</p>
+        {% endif %}
+
+{% endblock %}

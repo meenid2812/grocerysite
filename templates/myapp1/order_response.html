@@ -1,0 +1,9 @@
+{% extends 'myapp1/base.html' %}
+{% block myhdg %}
+    <span>Order Response</span>
+{% endblock %}
+{% block body_block %}
+    {% if msg %}
+       <h3>{{ msg }}</h3>
+    {% endif %}
+{% endblock %}

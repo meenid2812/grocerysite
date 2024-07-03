@@ -1,0 +1,14 @@
+{% extends 'myapp1/base.html' %}
+{% block body_block %}
+    {% if types %}
+        <h2> List of Types </h2>
+        <ol>
+            {% for type in types %}
+                <li> {{ type.name}} </li>
+            {% endfor %}
+        </ol>
+{% else %}
+    <strong> None of the types is available! </strong>
+{% endif %}
+<p><a href={% url 'myapp1:index'%}>Go Back</a></p>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'myapp1/base.html' %}
+{% block body_block %}
+    {% if msg %}
+            <p>{{ msg }}</p>
+    {% endif %}
+    {% if itemlist %}
+        <h2> List of Items </h2>
+        <ol>
+            {% for item in itemlist %}
+                <li><a href="{% url 'myapp1:itemdetail' item.id %}"> {{ item.name}} </a> </li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <strong> None of the types is available! </strong>
+    {% endif %}
+    <form method="post" action="{% url 'myapp1:placeorder' %}" >
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" />
+    </form>
+<p><a href={% url 'myapp1:index'%}>Go Back</a></p>
+{% endblock %}

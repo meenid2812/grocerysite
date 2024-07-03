@@ -1,0 +1,10 @@
+h1{
+    background: beige;
+    text-decoration-color: black;
+    font-size: medium;
+    font-family: "Arial Black";
+    font-variant-position: inherit;
+    font-style: italic;
+}
+
+.hbar1 { display: inline; margin: 15px; }

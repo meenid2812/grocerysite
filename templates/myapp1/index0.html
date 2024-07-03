@@ -1,0 +1,23 @@
+{% extends 'myapp1/base.html' %}
+{% block body_block %}
+<div>
+    {% if user.is_authenticated %}
+        Hi {{ user.username }}!
+        <p><a href="{% url 'myapp1:user_logout' %}">Log Out</a></p>
+    {% else %}
+      <p>You are not logged in</p>
+      <a href="{% url 'myapp1:user_login' %}">Log In</a>
+    {% endif %}
+    {% if type_list %}
+        <h2> List of Types </h2>
+        <ol>
+            {% for type in type_list %}
+                <li><a href="{% url 'myapp1:details' type.pk %}"> {{ type.name}} </a></li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <strong> None of the types is available! </strong>
+    {% endif %}
+<p><a href={% url 'myapp1:myorders'%}>My Orders</a></p>
+    </div>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% extends 'myapp1/base.html' %}
+{% block body_block %}
+        <p>{{ message }}</p>
+    <p><a href={% url 'myapp1:index'%}>Go Back</a></p>
+{% endblock %}

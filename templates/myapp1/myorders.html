@@ -1,0 +1,14 @@
+{% extends 'myapp1/base.html' %}
+{% block body_block %}
+    {% if orders %}
+        <h2> List of Orders </h2>
+            {% for order in orders %}
+                <b>Name:</b> {{ order.items.name}}&nbsp; &nbsp;
+                <b>Quantity :</b> {{ order.number_of_items}} &nbsp; &nbsp;
+                <b>Status :</b> {{ order.get_status_display }} <br>
+            {% endfor %}
+    {% else %}
+        <strong> None of the orders is available! </strong>
+    {% endif %}
+<p><a href={% url 'myapp1:index'%}>Go Back</a></p>
+{% endblock %}
